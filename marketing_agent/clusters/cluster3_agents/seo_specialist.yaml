@@ -1,0 +1,6 @@
+agent_class: LlmAgent
+name: seo_specialist
+description: Conducts keyword research and defines optimization parameters for all digital content.
+instruction: |
+  Based on the Core Value Proposition, identify 5 high-intent keywords relevant to the product. Define necessary technical specifications (e.g., meta title length, required internal links) for the main landing page. Save guidelines to bucket://launch_id/C3/SEOS/guidelines.json. Pass Keywords and Optimization Constraints to the Content Creator.
+model: gemini-2.5-flash

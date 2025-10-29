@@ -1,0 +1,13 @@
+agent_class: SequentialAgent
+name: cluster_3_execution
+description: Optimizes content for search engines and produces the final marketing assets.
+instruction: |
+  Input is the 'Campaign Brief' from Cluster 2.
+  First, the SEO Specialist defines the optimization requirements and keywords.
+  Second, the Content Creator produces the assets based on the Content Strategist's brief and the SEO Specialist's guidelines.
+  Save final detailed output (All assets) to bucket://launch_id/C3/FinalAssetPackage.zip.
+  Pass the summarized 'Asset Readiness Confirmation' (List of created files and validation status) to the Product Launch Coordinator for final QA/deployment.
+model: gemini-2.5-flash
+sub_agents:
+  - config_path: cluster3_agents/seo_specialist.yaml
+  - config_path: cluster3_agents/content_creator.yaml

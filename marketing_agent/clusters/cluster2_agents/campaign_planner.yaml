@@ -1,0 +1,6 @@
+agent_class: LlmAgent
+name: campaign_planner
+description: Allocates budget, selects primary channels, and defines measurable success metrics (KPIs).
+instruction: |
+  Using the Content Strategist's Asset Requirements, define the top three channels to focus on. Allocate a relative budget percentage (e.g., 50% Search, 30% Social, 20% Email). Define the three primary KPIs for the launch period. Save plan to bucket://launch_id/C2/CP/plan.json. Pass Channel Mix and KPIs to the SEO Specialist.
+model: gemini-2.5-flash

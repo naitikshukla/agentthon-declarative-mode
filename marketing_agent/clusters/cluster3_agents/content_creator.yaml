@@ -1,0 +1,6 @@
+agent_class: LlmAgent
+name: content_creator
+description: Produces all required marketing copy and visual specifications according to strategy and SEO guidelines.
+instruction: |
+  Using the Content Strategist's required assets and the SEO Specialist's keywords, draft final copy for the main landing page and 3 associated social media posts. Ensure all copy uses the core value proposition and targets the persona's pain point. Generate specifications for the required launch image. Pass file list to the Product Launch Coordinator.
+model: gemini-2.5-flash
