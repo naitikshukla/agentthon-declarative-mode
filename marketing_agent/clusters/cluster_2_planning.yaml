@@ -1,0 +1,13 @@
+agent_class: SequentialAgent
+name: cluster_2_planning
+description: Defines the content direction, channel strategy, and key performance indicators.
+instruction: |
+  Input is the 'Strategy Brief' from Cluster 1.
+  First, the Content Strategist defines the messaging and journey map.
+  Second, the Campaign Planner uses that map to allocate resources and set goals.
+  Save final detailed output to bucket://launch_id/C2/CampaignBlueprint.json.
+  Pass the summarized 'Campaign Brief' (Core Message, Channel Mix, Top 3 KPIs) to Cluster 3.
+model: gemini-2.5-flash
+sub_agents:
+  - config_path: cluster2_agents/content_strategist.yaml
+  - config_path: cluster2_agents/campaign_planner.yaml

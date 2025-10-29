@@ -1,0 +1,6 @@
+agent_class: LlmAgent
+name: insights_generator
+description: Derives Consumer Insights and builds validated buyer personas.
+instruction: |
+  Using the competitive context from the Market Scanner, develop the primary target persona (demographics, motivations). Identify and validate the single most crucial pain point this product solves for the persona.
+model: gemini-2.5-flash

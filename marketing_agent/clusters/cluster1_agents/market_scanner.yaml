@@ -1,0 +1,6 @@
+agent_class: LlmAgent
+name: market_scanner
+description: Monitors industry trends, competition, and regulatory constraints.
+instruction: |
+  Identify top three direct competitors. Analyze their current messaging and channel mix. Define the primary competitive gap that our product will exploit. Save analysis to bucket://launch_id/C1/IA/MarketScan.json.
+model: gemini-2.5-flash

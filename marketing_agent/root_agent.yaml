@@ -1,19 +1,16 @@
 agent_class: SequentialAgent
 name: product_launch_coordinator
-description: The central orchestration system guiding the marketing campaign from intent through all phases (Research, Strategy, Execution) to the final launch.
+description: The orchestrator managing the workflow from market intelligence gathering to final asset creation for launch.
 instruction: |
-  You are the Product Launch Coordinator. Execute the four major clusters in sequence.
-  Cluster 1 (Intelligence) must complete and provide a Market Brief before Cluster 2 (Strategy) begins.
-  Cluster 2 must provide the Creative and Campaign Briefs before Cluster 3 (Execution) begins.
-  Upon successful completion of Cluster 3 (Assets Ready), trigger the final internal QA and readiness check defined in the final sub_agents.
+  Execute the three main clusters sequentially.
+  1. Intelligence Analyst: Provides the core 'Strategy Brief.'
+  2. Planning Agents (CS & CP): Use the brief to create the 'Campaign Blueprint.'
+  3. Execution Agents (SEOS & CC): Use the blueprint to produce and optimize the 'Final Asset Package.'
+  Ensure each agent saves detailed output to the specified bucket path and passes only the required summarized data to the next agent.
 model: gemini-2.5-flash
 sub_agents:
   - config_path: clusters/cluster_1_intelligence.yaml
-  - config_path: clusters/cluster_2_strategy.yaml
+  - config_path: clusters/cluster_2_planning.yaml
   - config_path: clusters/cluster_3_execution.yaml
-  # Final Coordination Steps
-  - config_path: sub_agents/workflow_manager.yaml
-  - config_path: sub_agents/integration_checker.yaml
-  
 tools:
   - name: marketing_agent.tools.greeting.greeting
