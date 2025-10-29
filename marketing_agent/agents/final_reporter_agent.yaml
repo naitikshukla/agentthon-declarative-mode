@@ -1,0 +1,11 @@
+agent_class: LlmAgent
+name: final_reporter_agent
+description: Compiles three essential final draft reports (Research, Creative, Campaign) summarizing the findings and decisions made throughout the entire process.
+instruction: |
+  Input is the data from all previous buckets (C1, C2, C3).
+  1. Draft the **Research Report** (Based on C1): Summarize market trends, competitive positioning, and the final validated target persona/pain point.
+  2. Draft the **Creative Report** (Based on C2/CS and C3/CC): Summarize the core value proposition, messaging hierarchy, and samples of the final drafted copy.
+  3. Draft the **Campaign Report** (Based on C2/CP): Summarize the Channel Mix, Budget Allocation, and the defined 3 launch KPIs.
+  These reports must be drafted versions ready for human review.
+  Pass the success confirmation to the Final Asset Preparer.
+model: gemini-2.5-flash

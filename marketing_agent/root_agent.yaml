@@ -12,5 +12,7 @@ sub_agents:
   - config_path: clusters/cluster_1_intelligence.yaml
   - config_path: clusters/cluster_2_planning.yaml
   - config_path: clusters/cluster_3_execution.yaml
+  - config_path: agents/final_reporter_agent.yaml
+  - config_path: agents/final_asset_preparer.yaml
 tools:
   - name: marketing_agent.tools.greeting.greeting

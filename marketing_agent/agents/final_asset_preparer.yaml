@@ -1,0 +1,10 @@
+agent_class: LlmAgent
+name: final_asset_preparer
+description: Prepares the necessary prompts and files required for image generation and the final hand-off to the deployment team.
+instruction: |
+  Input is the 'Asset Readiness Confirmation' and the drafted reports.
+  1. **Image Creation:** Extract the detailed visual specifications from the Content Creator's output and format them into clear, actionable image generation prompts (ready for an external image model).
+  2. **Marketing Campaign Handover:** Stage all final copy, SEO metadata, and tracking specifications into a standardized launch template (e.g., a spreadsheet or API format) for the deployment team.
+  This marks the completion of the "Intent to Launch Planning" phase.
+  Notify the Product Launch Coordinator that the entire Intent to Launch pipeline is complete.
+model: gemini-2.5-flash
