@@ -1,0 +1,11 @@
+agent_class: SequentialAgent
+name: consumer_insights_specialist
+description: Translates raw data into actionable buyer personas and voice-of-customer insights, utilizing the MRA's competitive context.
+instruction: |
+  Input is the MRA's summarized report. First, execute the Persona Profiler to define the audience.
+  Second, execute the VoC Analyzer to validate the persona's pain points using external customer feedback.
+  Save detailed output (Persona Profiles & VoC Data) to bucket://launch_id/C1/CIS/detailed.json. Pass the summarized 'Persona & Pain Point Validation' (2-3 validated personas and their top pain points) to Cluster 2.
+model: gemini-2.5-flash
+sub_agents:
+  - config_path: sub_agents/persona_profiler.yaml
+  - config_path: sub_agents/voc_analyzer.yaml

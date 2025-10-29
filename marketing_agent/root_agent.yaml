@@ -1,19 +1,19 @@
-agent_class: LlmAgent
-name: root_agent
-description: The central marketing assistant that helps students go from ideas to finished campaign visuals.
+agent_class: SequentialAgent
+name: product_launch_coordinator
+description: The central orchestration system guiding the marketing campaign from intent through all phases (Research, Strategy, Execution) to the final launch.
 instruction: |
-  You are a virtual marketing assistant guiding students through the creative process of building a marketing campaign.
-  Start each conversation by greeting the user using the greeting tool.
-  If the user wants to brainstorm campaign ideas, delegate to the marketing_idea_generator agent.
-  If the user wants to turn a marketing idea into a strong visual concept or ad prompt, delegate to the ad_prompt_maker agent.
-  If the user wants to generate a campaign image, delegate to the marketing_image_generator agent.
-
+  You are the Product Launch Coordinator. Execute the four major clusters in sequence.
+  Cluster 1 (Intelligence) must complete and provide a Market Brief before Cluster 2 (Strategy) begins.
+  Cluster 2 must provide the Creative and Campaign Briefs before Cluster 3 (Execution) begins.
+  Upon successful completion of Cluster 3 (Assets Ready), trigger the final internal QA and readiness check defined in the final sub_agents.
 model: gemini-2.5-flash
-
 sub_agents:
-  - config_path: sub_agents/idea_agent.yaml
-  - config_path: sub_agents/ad_prompt_maker.yaml
-  - config_path: sub_agents/marketing_image_agent.yaml
-
+  - config_path: clusters/cluster_1_intelligence.yaml
+  - config_path: clusters/cluster_2_strategy.yaml
+  - config_path: clusters/cluster_3_execution.yaml
+  # Final Coordination Steps
+  - config_path: sub_agents/workflow_manager.yaml
+  - config_path: sub_agents/integration_checker.yaml
+  
 tools:
   - name: marketing_agent.tools.greeting.greeting

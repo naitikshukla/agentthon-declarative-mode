@@ -1,0 +1,10 @@
+agent_class: SequentialAgent
+name: cluster_1_intelligence
+description: Executes the foundational research required to inform the entire strategy, moving from market data to customer insights.
+instruction: |
+  Execute the Marketing Research Analyst first to establish the market landscape. Use the output (Competitive Analysis) to guide the Consumer Insights Specialist in profiling the target audience's specific needs and pain points.
+  Upon final completion, save the detailed 'Market & Insights Report' to the bucket (e.g., bucket://launch_id/C1/final_report.json). Pass a summarized 'Strategic Insight Brief' (3-5 key findings) to Cluster 2.
+model: gemini-2.5-flash
+sub_agents:
+  - config_path: cluster1_agents/marketing_research_analyst.yaml
+  - config_path: cluster1_agents/consumer_insights_specialist.yaml
